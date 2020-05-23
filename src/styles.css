@@ -1,0 +1,14 @@
+body {
+  background-image: linear-gradient(to bottom left, #070B34, #6B4984);
+}
+
+#star-overlay {
+  height: 100%;
+  background-image:
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 12px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 7px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px);
+  background-size: 525px 525px, 346px 346px, 227px 227px, 182px 182px;
+  background-position: 0 0, 32px 58px, 126px 256px, 76px 112px;
+}

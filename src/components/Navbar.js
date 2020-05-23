@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Navbar = () => (
-  <h1>Hi</h1>
+  <div id='star-overlay'>
+  </div>
 )
 
 export default Navbar
