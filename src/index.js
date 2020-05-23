@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom'
 
 import "./styles.css";
 
-import Navbar from "./components/Navbar"
+import Main from "./components/Main"
 
-ReactDOM.render(<Navbar />, document.getElementById('app'))
+ReactDOM.render(<Main />, document.getElementById('app'))

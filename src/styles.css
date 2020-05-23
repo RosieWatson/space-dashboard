@@ -12,3 +12,7 @@ body {
   background-size: 525px 525px, 346px 346px, 227px 227px, 182px 182px;
   background-position: 0 0, 32px 58px, 126px 256px, 76px 112px;
 }
+
+.card {
+  width: 20rem;
+}
