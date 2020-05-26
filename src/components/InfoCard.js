@@ -1,7 +1,7 @@
 import React from 'react'
 
 const InfoCard = () => (
-  <div className='card'>
+  <div className='card m-5'>
     <div className='card-body'>
       <h5 className='card-title'>
         Amount of People in Space right now
