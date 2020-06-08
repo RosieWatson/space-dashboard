@@ -13,7 +13,7 @@ class PictureCard extends Component {
 
     return (
       <div className='picture-card card m-5'>
-        <div className='card-body' style={{ height: '100%' }}>
+        <div className='card-body'>
           <h5 className='card-title'>
             Astronomy Picture of the Day
           </h5>
