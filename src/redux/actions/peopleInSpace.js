@@ -8,7 +8,7 @@ export const fetchPeopleInSpace = () => {
     })
 
     try {
-      const response = await fetch('http://api.open-notify.org/astros.json', { referrerPolicy: 'unsafe-url' })
+      const response = await fetch('http://api.open-notify.org/astros.json')
       const data = await response.json()
 
       dispatch({
