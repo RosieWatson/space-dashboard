@@ -1,11 +1,11 @@
 {
-  "name": "space-site",
+  "name": "space-dashboard",
   "version": "1.0.0",
   "description": "Site to display data about space",
   "main": "index.js",
   "scripts": {
     "build": "node create-env.js && webpack --mode production",
-    "start": "node create-env.js && webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development"
   },
   "keywords": [
     "space"

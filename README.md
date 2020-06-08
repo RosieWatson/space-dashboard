@@ -11,7 +11,7 @@ npm i
 npm run start
 ```
 
-Some of the requests use NASA's open API, which means you will need to obtain a key from [them](https://api.nasa.gov/) and then export it to your local environment.
+Some of the requests use NASA's open API, which means you will need to obtain a key from [them](https://api.nasa.gov/) and then add it to your `.env` as `REACT_APP_NASA_API_KEY="YOUR_KEY"`.
 
 ## Overview
 - Written in React
