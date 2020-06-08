@@ -9,7 +9,7 @@ class PictureCard extends Component {
   }
 
   render () {
-    const { copyright, date, explanation, title, url } = this.props.pictureOfTheDay
+    const { copyright, date, explanation, isFetching, title, url } = this.props.pictureOfTheDay
 
     return (
       <div className='picture-card card m-5'>
@@ -17,32 +17,37 @@ class PictureCard extends Component {
           <h5 className='card-title'>
             Astronomy Picture of the Day
           </h5>
-          <a href={url} target='_blank' rel='noopener'>
-            <img className='card-img-top' src={url} alt={`Astronomy Picture of the Day: ${title}`} />
-          </a>
-          <div className='card-body'>
-            <h6>{title}</h6>
-            <i>{date}</i>
-            <br/>
-            <button
-              class='btn btn-info mt-2'
-              data-toggle='collapse'
-              data-target='#collapse-explanation'
-              aria-expanded='true'
-              aria-controls='collapse-explanation'
-              id='explanation-button'
-            >
-              Explanation
-            </button>
+          { isFetching ?
+           <div className='loading-spinner m-auto'></div> :
+           <>
+            <a href={url} target='_blank' rel='noopener'>
+              <img className='card-img-top' src={url} alt={`Astronomy Picture of the Day: ${title}`} />
+            </a>
+            <div className='card-body'>
+              <h6>{title}</h6>
+              <i>{date}</i>
+              <br/>
+              <button
+                class='btn btn-info mt-2'
+                data-toggle='collapse'
+                data-target='#collapse-explanation'
+                aria-expanded='true'
+                aria-controls='collapse-explanation'
+                id='explanation-button'
+              >
+                Explanation
+              </button>
 
-            <div id='collapse-explanation' class='collapse' aria-labelledby='explanation-button'>
-              <div class='card-body'>
-                <p>{explanation}</p>
+              <div id='collapse-explanation' class='collapse' aria-labelledby='explanation-button'>
+                <div class='card-body'>
+                  <p>{explanation}</p>
+                </div>
               </div>
-            </div>
-            </div>
-            {copyright && <small>Copyright: {copyright}</small>}
-          </div>
+              </div>
+              {copyright && <small>Copyright: {copyright}</small>}
+            </>
+          }
+        </div>
       </div>
     )
   }
