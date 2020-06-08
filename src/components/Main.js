@@ -1,6 +1,5 @@
 import React from 'react'
 
-import InfoCard from './InfoCard'
 import PeopleCard from './PeopleCard'
 
 const Main = () => (
