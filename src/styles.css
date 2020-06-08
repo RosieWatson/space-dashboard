@@ -16,16 +16,18 @@ body {
   background-size: 525px 525px, 346px 346px, 227px 227px, 182px 182px;
   background-position: 0 0, 32px 58px, 126px 256px, 76px 112px;
 }
-
 .card {
-  width: 20rem;
-  height: 320px;
+  width: 30rem;
   box-shadow: 2px 2px 10px 1px #070B34;
 }
 
-@media only screen and (max-width: 400px) {
-  .card {
-    height: 405px;
+.people-card.card {
+  height: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .people-card.card {
+    height: 260px;
   }
 }
 

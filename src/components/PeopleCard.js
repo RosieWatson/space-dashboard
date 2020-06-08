@@ -76,7 +76,7 @@ class PeopleCard extends Component {
 
   render () {
     return (
-      <div className='card m-5'>
+      <div className='people-card card m-5'>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
               <h5 className='card-title'>
