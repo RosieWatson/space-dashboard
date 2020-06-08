@@ -4,8 +4,8 @@
   "description": "Site to display data about space",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "build": "node create-env.js && webpack --mode production",
+    "start": "node create-env.js && webpack-dev-server --open --mode development"
   },
   "keywords": [
     "space"

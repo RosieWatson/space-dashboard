@@ -10,10 +10,8 @@ Dashboard for showing off latest information about space. Run locally for full c
 npm i
 npm run start
 ```
-Some of the requests use NASA's open API, which means you will need to obtain a key from [them](https://api.nasa.gov/) and then export it:
-```
-export NASA_API_KEY=[your API key]
-```
+
+Some of the requests use NASA's open API, which means you will need to obtain a key from [them](https://api.nasa.gov/) and then export it to your local environment.
 
 ## Overview
 - Written in React
