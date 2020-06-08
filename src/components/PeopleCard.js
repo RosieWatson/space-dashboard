@@ -5,16 +5,13 @@ import ReactCardFlip from 'react-card-flip'
 
 import { fetchPeopleInSpace } from '../redux/actions/peopleInSpace'
 
-// Think about loading
-// Think about there being no people
-// Thing about dealing with the message
 class PeopleCard extends Component {
   constructor(props) {
     super(props)
     
     this.state = {
       isFlipped: false,
-      personInd: 0
+      personIndex: 0
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -30,35 +27,62 @@ class PeopleCard extends Component {
     this.setState(state => {
       return {
         isFlipped: !state.isFlipped,
-        personInd: index
+        personIndex: index
       }
     })
   }
 
+  renderFlipCardFront() {
+    const { error, isFetching, number, people } = this.props.peopleInSpaceData
+
+    if (isFetching) return <div className='mt-5 pt-4'><div className='loading-spinner m-auto'></div></div>
+
+    if (error) return <div>We are currently not able to get data on the amount of people in space, try again in a bit!</div>
+
+    if (number < 1) return <div>There is currently no one in space! What is happening!?</div>
+
+    return (<>
+      <p>Click for more information on each Astronaut</p>
+        <div className='d-flex flex-wrap justify-content-around'>
+          {people && people.map((person, index) => {
+            return <i key={person.name} className='fas fa-user-astronaut fa-4x pointer m-2' onClick={(e) => this.handleClick(e, index)} />
+          })}
+        </div>
+    </>)
+  }
+
+  renderFlipCardBack() {
+    const people = this.props.peopleInSpaceData.people
+    const person = people && people[this.state.personIndex]
+
+    return(
+      <div className='card-body'>
+        <h5 className='card-title mt-3 pb-3'>{ person && person.name }</h5>
+        <div className='card-text'>
+          <p><b>Craft:</b> { person && person.craft }</p>
+        </div>
+        <div
+          className='back-arrow pointer mb-4'
+          onClick={(e) => this.handleClick(e, 0)}
+        >
+          <i className='fas fa-arrow-circle-left' /> back
+        </div>
+      </div>
+    )
+  }
+
   render () {
-    const { people, personInd } = this.props.peopleInSpaceData
-    const person = people && people[personInd]
     return (
       <div className='card m-5'>
-        <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal'>
-            <div className='card-body'>
-              <h5 className='card-title pb-3'>
+        <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
+            <div className='card-body' style={{ height: '100%' }}>
+              <h5 className='card-title'>
                 Astronauts in space currently
               </h5>
-              <div className='d-flex flex-wrap justify-content-around'>
-                {people && people.map((person, index) => {
-                  return <i key={person.name} className='fas fa-user-astronaut fa-4x' onClick={(e) => this.handleClick(e, index)} />
-                })}
-              </div>
+              {this.renderFlipCardFront()}
             </div>
 
-            <div className='card-body'>
-              <h5 className='card-title pb-3'>{ person && person.name }</h5>
-              <div className='card-text'>
-                <p><b>Craft:</b> { person && person.craft }</p>
-                <div onClick={(e) => this.handleClick(e, 0)}><i className='fas fa-arrow-circle-left' /> back</div>
-              </div>
-            </div>
+            {this.renderFlipCardBack()}
         </ReactCardFlip>
       </div>
     )
