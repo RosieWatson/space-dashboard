@@ -35,9 +35,12 @@ class PeopleCard extends Component {
   renderFlipCardFront() {
     const { error, isFetching, number, people } = this.props.peopleInSpaceData
 
-    if (isFetching) return <div className='mt-5 pt-4'><div className='loading-spinner m-auto'></div></div>
+    if (isFetching) return <div className='mt-4'><div className='loading-spinner m-auto'></div></div>
 
-    if (error) return <div>We are currently not able to get data on the amount of people in space, try again in a bit!</div>
+    if (error) return <>
+      <p>This request is only available when run locally due to lack of HTTPS.</p>
+      <p>We are currently not able to get data on the amount of people in space, try again in a bit!</p>
+    </>
 
     if (number < 1) return <div>There is currently no one in space! What is happening!?</div>
 
@@ -73,7 +76,7 @@ class PeopleCard extends Component {
 
   render () {
     return (
-      <div className='card m-5'>
+      <div className='people-card card m-5'>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
               <h5 className='card-title'>
