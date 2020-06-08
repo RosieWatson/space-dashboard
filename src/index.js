@@ -7,6 +7,8 @@ import configureStore from './redux/store'
 
 const { persistor, store } = configureStore()
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import "./styles.css";
 
 import Main from "./components/Main"

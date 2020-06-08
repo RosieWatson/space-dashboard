@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import ReactCardFlip from 'react-card-flip'
+
+import { fetchPeopleInSpace } from '../redux/actions/peopleInSpace'
 
 // Think about loading
 // Think about there being no people
@@ -9,9 +13,6 @@ class PeopleCard extends Component {
     super(props)
     
     this.state = {
-      number: null,
-      message: null,
-      people: null,
       isFlipped: false,
       personInd: 0
     }
@@ -20,16 +21,7 @@ class PeopleCard extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.open-notify.org/astros.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState(state  => {
-          return {
-            ...state,
-            ...data
-          }
-        })
-      })
+    this.props.getPeopleInSpace()
   }
 
   handleClick(e, index) {
@@ -44,9 +36,8 @@ class PeopleCard extends Component {
   }
 
   render () {
-    const { people, personInd } = this.state
+    const { people, personInd } = this.props.peopleInSpaceData
     const person = people && people[personInd]
-
     return (
       <div className='card m-5'>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal'>
@@ -74,4 +65,14 @@ class PeopleCard extends Component {
   }
 }
 
-export default PeopleCard
+export const mapStateToProps = state => {
+  return {
+    peopleInSpaceData: state.peopleInSpace
+  }
+}
+
+export const mapDispatchToProps = dispatch => ({
+  getPeopleInSpace: () => dispatch(fetchPeopleInSpace())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PeopleCard)

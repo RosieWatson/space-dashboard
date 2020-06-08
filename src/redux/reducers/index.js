@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux'
 
+import peopleInSpace from './peopleInSpace'
 
-export default combineReducers({})
+export default combineReducers({
+  peopleInSpace
+})
