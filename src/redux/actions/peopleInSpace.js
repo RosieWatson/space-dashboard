@@ -8,7 +8,7 @@ export const fetchPeopleInSpace = () => {
     })
 
     try {
-      const response = await fetch('http://api.open-notify.org/astros.json')
+      const response = await fetch('http://api.open-notify.org/astros.json', {method: "GET"})
       const data = await response.json()
 
       dispatch({
