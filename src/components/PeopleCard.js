@@ -37,7 +37,10 @@ class PeopleCard extends Component {
 
     if (isFetching) return <div className='mt-5 pt-4'><div className='loading-spinner m-auto'></div></div>
 
-    if (error) return <div>We are currently not able to get data on the amount of people in space, try again in a bit!</div>
+    if (error) return <>
+      <p>This request is only available when run locally due to lack of HTTPS.</p>
+      <p>We are currently not able to get data on the amount of people in space, try again in a bit!</p>
+    </>
 
     if (number < 1) return <div>There is currently no one in space! What is happening!?</div>
 
