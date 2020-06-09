@@ -17,7 +17,8 @@ export default function(state = [], action) {
         date: action.payload.date,
         explanation: action.payload.explanation,
         title: action.payload.title,
-        url: action.payload.url
+        url: action.payload.url,
+        hdUrl: action.payload.hdurl
       }
     case C.FETCH_PICTURE_OF_THE_DAY_ERROR:
       return {

@@ -15,6 +15,7 @@ export default {
     date: null,
     explanation: null,
     title: null,
-    url: null
+    url: null,
+    hdUrl: null
   }
 }

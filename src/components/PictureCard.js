@@ -9,7 +9,7 @@ class PictureCard extends Component {
   }
 
   render () {
-    const { copyright, date, explanation, isFetching, title, url } = this.props.pictureOfTheDay
+    const { copyright, date, explanation, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
 
     return (
       <div className='picture-card card m-5'>
@@ -20,7 +20,7 @@ class PictureCard extends Component {
           { isFetching ?
            <div className='loading-spinner m-auto'></div> :
            <>
-            <a href={url} target='_blank' rel='noopener'>
+            <a href={hdUrl ? hdUrl : url} target='_blank' rel='noopener'>
               <img className='card-img-top' src={url} alt={`Astronomy Picture of the Day: ${title}`} />
             </a>
             <div className='card-body'>
