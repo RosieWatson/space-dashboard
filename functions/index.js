@@ -6,17 +6,21 @@ admin.initializeApp()
 const fetch = require('node-fetch')
 
 exports.getAstronauts = functions.https.onRequest(async (req, res) => {
-  fetch('http://api.open-notify.org/astros')
+  return fetch('http://api.open-notify.org/astros')
     .then(response => response.json())
     .then(body => {
-      return res.send({
-        message: 'success',
-        data: body,
-        error: null
-      })
+      return res
+        .set('Access-Control-Allow-Origin', '*')
+        .status(200)
+        .type('application/json')
+        .json({
+          message: 'success',
+          data: body,
+          error: null
+        })
     })
     .catch(error => {
-      return res.send({
+      return res.json({
         message: 'error',
         data: null,
         error

@@ -9,7 +9,7 @@ export default function(state = [], action) {
         error: null
       }
     case C.FETCH_PEOPLE_IN_SPACE_SUCCESS:
-      const { message, number, people } = action.payload
+      const { message, number, people } = action.payload.data
       return {
         message,
         number,

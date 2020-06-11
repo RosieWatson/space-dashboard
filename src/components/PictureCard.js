@@ -28,7 +28,7 @@ class PictureCard extends Component {
               <i>{date}</i>
               <br/>
               <button
-                class='btn btn-info mt-2'
+                className='btn btn-info mt-2'
                 data-toggle='collapse'
                 data-target='#collapse-explanation'
                 aria-expanded='true'
@@ -38,8 +38,8 @@ class PictureCard extends Component {
                 Explanation
               </button>
 
-              <div id='collapse-explanation' class='collapse' aria-labelledby='explanation-button'>
-                <div class='card-body'>
+              <div id='collapse-explanation' className='collapse' aria-labelledby='explanation-button'>
+                <div className='card-body'>
                   <p>{explanation}</p>
                 </div>
               </div>
