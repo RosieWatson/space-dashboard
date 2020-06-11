@@ -33,7 +33,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   .people-card.card {
-    height: 260px;
+    height: 315px;
   }
 }
 

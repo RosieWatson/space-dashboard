@@ -35,7 +35,7 @@ class PeopleCard extends Component {
   renderFlipCardFront() {
     const { error, isFetching, number, people } = this.props.peopleInSpaceData
 
-    if (isFetching) return <div className='mt-4'><div className='loading-spinner m-auto'></div></div>
+    if (isFetching) return <div className='mt-3 pt-5 pt-sm-0'><div className='loading-spinner m-auto'></div></div>
 
     if (error) return <p>We are currently not able to get data on the amount of people in space, try again in a bit!</p>
 
