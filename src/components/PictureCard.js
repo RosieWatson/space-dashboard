@@ -31,7 +31,7 @@ class PictureCard extends Component {
               <i>{date}</i>
               <br/>
               <button
-                className='btn btn-info mt-2'
+                className='btn btn-info text-dark mt-2'
                 data-toggle='collapse'
                 data-target='#collapse-explanation'
                 aria-expanded='true'
