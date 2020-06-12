@@ -41,7 +41,10 @@ module.exports = {
       skipWaiting: true,
     }),
     new CopyWebpackPlugin({
-      patterns: ['./manifest.webmanifest'], 
+      patterns: [
+        './manifest.webmanifest',
+        { from: 'assets', to: 'assets' },
+      ],
     })
   ]
 };
