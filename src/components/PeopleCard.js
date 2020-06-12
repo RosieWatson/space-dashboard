@@ -33,9 +33,9 @@ class PeopleCard extends Component {
   }
 
   renderFlipCardFront() {
-    const { error, hasFetched, isFetching, number, people } = this.props.peopleInSpaceData
+    const { error, isFetching, number, people } = this.props.peopleInSpaceData
 
-    if (isFetching && !hasFetched) return <div className='mt-3 pt-5 pt-sm-0'><div className='loading-spinner m-auto'></div></div>
+    if (isFetching) return <div className='mt-3 pt-5 pt-sm-0'><div className='loading-spinner m-auto'></div></div>
 
     if (error) return <p>We are currently not able to get data on the amount of people in space, try again in a bit!</p>
 
@@ -72,18 +72,13 @@ class PeopleCard extends Component {
   }
 
   render () {
-    const { hasFetched, isFetching } = this.props.peopleInSpaceData
-
     return (
       <div className='people-card card m-5'>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
-              <div>
-                <h5 className='card-title d-inline-block'>
-                  Astronauts in space currently
-                </h5>
-                {hasFetched && isFetching && <div className='loading-spinner-small d-inline-block float-right'></div>}
-              </div>
+              <h5 className='card-title'>
+                Astronauts in space currently
+              </h5>
               {this.renderFlipCardFront()}
             </div>
 
