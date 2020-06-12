@@ -9,15 +9,18 @@ class PictureCard extends Component {
   }
 
   render () {
-    const { copyright, date, explanation, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
+    const { copyright, date, explanation, hasFetched, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
 
     return (
       <div className='picture-card card m-5'>
         <div className='card-body'>
-          <h5 className='card-title'>
-            Astronomy Picture of the Day
-          </h5>
-          { isFetching ?
+          <div>
+            <h5 className='card-title d-inline-block'>
+              Astronomy Picture of the Day
+            </h5>
+            {hasFetched && isFetching && <div className='loading-spinner-small d-inline-block float-right'></div>}
+          </div>
+          { isFetching && !hasFetched ?
            <div className='loading-spinner m-auto'></div> :
            <>
             <a href={hdUrl ? hdUrl : url} target='_blank' rel='noopener'>
