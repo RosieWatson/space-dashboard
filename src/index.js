@@ -11,7 +11,6 @@ const { persistor, store } = configureStore()
 // Styling
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import "./styles.css";
 
 import Main from "./components/Main"
 
