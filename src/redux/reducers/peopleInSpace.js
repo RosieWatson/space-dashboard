@@ -4,7 +4,7 @@ export default function(state = [], action) {
   switch (action.type) {
     case C.FETCH_PEOPLE_IN_SPACE:
       return {
-        hasFetched: false,
+        ...state,
         isFetching: true,
         error: null
       }
