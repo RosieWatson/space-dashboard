@@ -12,7 +12,7 @@
  limitations under the License.
  */
 
-const PRECACHE = 'precache-v1'; // Update cache version number when file name/location changes
+const PRECACHE = 'precache-v2'; // Update cache version number when file name/location changes
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
