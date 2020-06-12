@@ -12,13 +12,14 @@
  limitations under the License.
  */
 
-const PRECACHE = 'precache-v1'; // Update cache version number when file name/location changes
+const PRECACHE = 'precache-v2'; // Update cache version number when file name/location changes
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  '/index.html'
-  // './styles.css',
+  '/index.html',
+  '/assets',
+  'main.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.

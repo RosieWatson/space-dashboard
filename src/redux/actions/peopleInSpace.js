@@ -1,11 +1,21 @@
 import C from '../storeConstants'
+import helpers from '../lib'
 
-// Maybe think about caching
 export const fetchPeopleInSpace = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch({
       type: C.FETCH_PEOPLE_IN_SPACE
     })
+
+    const currentDateTime = new Date()
+    if (helpers.shouldUseCachedData(getState(), currentDateTime, 'peopleInSpace')) {
+      dispatch({
+        type: C.FETCH_PEOPLE_IN_SPACE_CACHE_HIT
+      })
+
+      return true
+    }
+
 
     try {
       const response = await fetch('https://us-central1-space-dashboard-88ee0.cloudfunctions.net/getAstronauts')
@@ -13,7 +23,7 @@ export const fetchPeopleInSpace = () => {
 
       dispatch({
         type: C.FETCH_PEOPLE_IN_SPACE_SUCCESS,
-        payload: data
+        payload: { ...data, currentDateTime }
       })
     } catch (error) {
       dispatch({

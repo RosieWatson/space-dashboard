@@ -8,6 +8,13 @@ export default function(state = [], action) {
         isFetching: true,
         error: null
       }
+    case C.FETCH_PEOPLE_IN_SPACE_CACHE_HIT:
+      return {
+        ...state,
+        hasFetched: true,
+        isFetching: false,
+        error: null
+      }
     case C.FETCH_PEOPLE_IN_SPACE_SUCCESS:
       const { message, number, people } = action.payload.data
       return {
@@ -16,7 +23,8 @@ export default function(state = [], action) {
         people,
         hasFetched: true,
         isFetching: false,
-        error: null
+        error: null,
+        timestamp: action.payload.currentDateTime
       }
     case C.FETCH_PEOPLE_IN_SPACE_ERROR:
       return {

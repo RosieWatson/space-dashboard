@@ -12,7 +12,7 @@ class PictureCard extends Component {
     const { copyright, date, explanation, hasFetched, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
 
     return (
-      <div className='picture-card card m-5'>
+      <div className='picture-card card m-5 mb-0'>
         <div className='card-body'>
           <div>
             <h5 className='card-title d-inline-block'>
@@ -31,7 +31,7 @@ class PictureCard extends Component {
               <i>{date}</i>
               <br/>
               <button
-                className='btn btn-info mt-2'
+                className='btn btn-info text-dark mt-2'
                 data-toggle='collapse'
                 data-target='#collapse-explanation'
                 aria-expanded='true'
