@@ -4,7 +4,7 @@ export default function(state = [], action) {
   switch (action.type) {
     case C.FETCH_PICTURE_OF_THE_DAY:
       return {
-        ...state,
+        hasFetched: false,
         isFetching: true,
         error: null
       }

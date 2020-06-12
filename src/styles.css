@@ -55,15 +55,6 @@ body {
   animation: spin 2s linear infinite;
 }
 
-.loading-spinner-small {
-  border: 10px solid #141852;
-  border-bottom: 10px solid #855988;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
