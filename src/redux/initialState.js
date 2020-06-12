@@ -5,7 +5,8 @@ export default {
     people: null,
     hasFetched: false,
     isFetching: false,
-    error: null
+    error: null,
+    timestamp: null
   },
   pictureOfTheDay: {
     hasFetched: false,
@@ -16,6 +17,7 @@ export default {
     explanation: null,
     title: null,
     url: null,
-    hdUrl: null
+    hdUrl: null,
+    timestamp: null
   }
 }

@@ -8,6 +8,13 @@ export default function(state = [], action) {
         isFetching: true,
         error: null
       }
+    case C.FETCH_PICTURE_OF_THE_DAY_CACHE_HIT:
+      return {
+        ...state,
+        hasFetched: true,
+        isFetching: false,
+        error: null
+      }
     case C.FETCH_PICTURE_OF_THE_DAY_SUCCESS:
       return {
         hasFetched: true,
@@ -18,7 +25,8 @@ export default function(state = [], action) {
         explanation: action.payload.explanation,
         title: action.payload.title,
         url: action.payload.url,
-        hdUrl: action.payload.hdurl
+        hdUrl: action.payload.hdurl,
+        timestamp: action.payload.currentDateTime
       }
     case C.FETCH_PICTURE_OF_THE_DAY_ERROR:
       return {

@@ -12,7 +12,7 @@ class PictureCard extends Component {
     const { copyright, date, explanation, hasFetched, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
 
     return (
-      <div className='picture-card card m-5'>
+      <div className='picture-card card m-5 mb-0'>
         <div className='card-body'>
           <div>
             <h5 className='card-title d-inline-block'>

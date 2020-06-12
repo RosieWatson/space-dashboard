@@ -75,7 +75,7 @@ class PeopleCard extends Component {
     const { hasFetched, isFetching } = this.props.peopleInSpaceData
 
     return (
-      <div className='people-card card m-5'>
+      <div className='people-card card m-5 mb-0'>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
               <div>

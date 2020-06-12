@@ -1,11 +1,20 @@
 import C from '../storeConstants'
+import helpers from '../lib'
 
-// Maybe think about caching
 export const fetchPictureOfTheDay = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch({
       type: C.FETCH_PICTURE_OF_THE_DAY
     })
+
+    const currentDateTime = new Date()
+    if (helpers.shouldUseCachedData(getState(), currentDateTime, 'pictureOfTheDay')) {
+      dispatch({
+        type: C.FETCH_PICTURE_OF_THE_DAY_CACHE_HIT
+      })
+
+      return true
+    }
 
     try {
       const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`)
@@ -13,7 +22,7 @@ export const fetchPictureOfTheDay = () => {
 
       dispatch({
         type: C.FETCH_PICTURE_OF_THE_DAY_SUCCESS,
-        payload: data
+        payload: { ...data, currentDateTime }
       })
     } catch (error) {
       dispatch({
