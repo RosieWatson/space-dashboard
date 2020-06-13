@@ -5,6 +5,8 @@ import ReactCardFlip from 'react-card-flip'
 
 import { fetchPeopleInSpace } from '../redux/actions/peopleInSpace'
 
+import styles from '../app.module.scss'
+
 class PeopleCard extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +37,7 @@ class PeopleCard extends Component {
   renderFlipCardFront() {
     const { error, hasFetched, isFetching, number, people } = this.props.peopleInSpaceData
 
-    if (isFetching && !hasFetched) return <div className='mt-3 pt-5 pt-sm-0'><div className='loading-spinner m-auto'></div></div>
+    if (isFetching && !hasFetched) return <div className='mt-3 pt-5 pt-sm-0'><div className={`${styles.loadingSpinner} m-auto`}></div></div>
 
     if (error) return <p>We are currently not able to get data on the amount of people in space, try again in a bit!</p>
 
@@ -45,7 +47,7 @@ class PeopleCard extends Component {
       <p>Click for more information on each Astronaut</p>
         <div className='d-flex flex-wrap justify-content-around'>
           {people && people.map((person, index) => {
-            return <i key={person.name} className='fas fa-user-astronaut fa-4x pointer m-2' onClick={(e) => this.handleClick(e, index)} />
+            return <i key={person.name} className={`fas fa-user-astronaut fa-4x ${styles.icon} ${styles.pointer} m-2`} onClick={(e) => this.handleClick(e, index)} />
           })}
         </div>
     </>)
@@ -62,7 +64,7 @@ class PeopleCard extends Component {
           <p><b>Craft:</b> { person && person.craft }</p>
         </div>
         <div
-          className='back-arrow pointer mb-4'
+          className={`${styles.backArrow} ${styles.pointer} mb-4`}
           onClick={(e) => this.handleClick(e, 0)}
         >
           <i className='fas fa-arrow-circle-left' /> back
@@ -75,14 +77,14 @@ class PeopleCard extends Component {
     const { hasFetched, isFetching } = this.props.peopleInSpaceData
 
     return (
-      <div className='people-card card m-5 mb-0'>
+      <div className={`card ${styles.peopleCard} m-5 mb-0`}>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
               <div>
                 <h5 className='card-title d-inline-block'>
                   Astronauts in space currently
                 </h5>
-                {hasFetched && isFetching && <div className='loading-spinner-small d-inline-block float-right'></div>}
+                {hasFetched && isFetching && <div className={`${styles.loadingSpinnerSmall} d-inline-block float-right`}></div>}
               </div>
               {this.renderFlipCardFront()}
             </div>
