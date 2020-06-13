@@ -9,10 +9,12 @@ import configureStore from './redux/store'
 const { persistor, store } = configureStore()
 
 // Styling
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+import 'bootstrap/js/dist/collapse'
+import './styles.scss'
 
-import Main from "./components/Main"
+import Main from './components/Main'
 
 ReactDOM.render(
   <Provider store={store}>
