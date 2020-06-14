@@ -20,12 +20,13 @@ export default function(state = [], action) {
         hasFetched: true,
         isFetching: false,
         error: null,
-        copyright: action.payload.copyright,
+        copyright: action.payload.copyright || null,
         date: action.payload.date,
         explanation: action.payload.explanation,
         title: action.payload.title,
         url: action.payload.url,
-        hdUrl: action.payload.hdurl,
+        hdUrl: action.payload.hdurl || null,
+        mediaType: action.payload.media_type || null,
         timestamp: action.payload.currentDateTime
       }
     case C.FETCH_PICTURE_OF_THE_DAY_ERROR:

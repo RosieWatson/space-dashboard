@@ -11,7 +11,7 @@ class PictureCard extends Component {
   }
 
   render () {
-    const { copyright, date, explanation, hasFetched, hdUrl, isFetching, title, url } = this.props.pictureOfTheDay
+    const { copyright, date, explanation, hasFetched, hdUrl, isFetching, mediaType, title, url } = this.props.pictureOfTheDay
 
     return (
       <div className={`picture-card card ${styles.infoCard} m-5 mb-0`}>
@@ -25,11 +25,13 @@ class PictureCard extends Component {
           { isFetching && !hasFetched ?
            <div className={`${styles.loadingSpinner} m-auto`}></div> :
            <>
-           <div className='overflow-hidden'>
+           {mediaType === 'video' ?
+            <a href={url} target='_blank' rel='noopener'>Click here to watch the video of the day</a>
+           :(<div className='overflow-hidden'>
             <a href={hdUrl ? hdUrl : url} target='_blank' rel='noopener'>
               <img className={`card-img-top ${styles.dailyImage}`} src={url} alt={`Astronomy Picture of the Day: ${title}`} />
             </a>
-           </div>
+           </div>)}
             <div className='card-body px-0'>
               <h6>{title}</h6>
               <i>{date}</i>
