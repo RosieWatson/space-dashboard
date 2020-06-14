@@ -18,6 +18,7 @@ export default {
     title: null,
     url: null,
     hdUrl: null,
+    mediaType: null,
     timestamp: null
   }
 }

@@ -7,7 +7,7 @@ export const fetchPictureOfTheDay = () => {
       type: C.FETCH_PICTURE_OF_THE_DAY
     })
 
-    const currentDateTime = new Date()
+    const currentDateTime = new Date(Date.now())
     if (helpers.shouldUseCachedData(getState(), currentDateTime, 'pictureOfTheDay')) {
       dispatch({
         type: C.FETCH_PICTURE_OF_THE_DAY_CACHE_HIT
