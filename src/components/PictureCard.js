@@ -23,11 +23,13 @@ class PictureCard extends Component {
             {hasFetched && isFetching && <div className={`${styles.loadingSpinnerSmall} d-inline-block float-right`}></div>}
           </div>
           { isFetching && !hasFetched ?
-           <div className={`${loadingSpinner} m-auto`}></div> :
+           <div className={`${styles.loadingSpinner} m-auto`}></div> :
            <>
+           <div className='overflow-hidden'>
             <a href={hdUrl ? hdUrl : url} target='_blank' rel='noopener'>
               <img className={`card-img-top ${styles.dailyImage}`} src={url} alt={`Astronomy Picture of the Day: ${title}`} />
             </a>
+           </div>
             <div className='card-body px-0'>
               <h6>{title}</h6>
               <i>{date}</i>
