@@ -1,8 +1,8 @@
-const shouldUseCachedData = (state, currentDateTime, obj) => {
-  const lastFetched = state[obj].timestamp
+const shouldUseCachedData = (state, currentDateTime, main, sub) => {
+  const lastFetched = sub ? state[main][sub].timestamp : state[main].timestamp
   if (!lastFetched) return false
 
-  const hasError = state[obj].error
+  const hasError = sub ? state[main][sub].error : state[main].error
   if (hasError) return false
 
   const timeLastFetched = new Date(lastFetched)

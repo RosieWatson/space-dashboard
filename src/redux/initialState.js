@@ -20,5 +20,8 @@ export default {
     hdUrl: null,
     mediaType: null,
     timestamp: null
+  },
+  reddit: {
+    space: {}
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 import PeopleCard from './PeopleCard'
 import PictureCard from './PictureCard'
+import RedditCard from './RedditCard'
 
 import styles from '../app.module.scss'
 
@@ -11,6 +12,7 @@ const Main = () => (
     <div className='d-flex flex-wrap align-items-start justify-content-center'>
       <PictureCard />
       <PeopleCard />
+      <RedditCard page='space' />
     </div>
   </div>
 )
