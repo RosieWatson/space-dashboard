@@ -13,7 +13,7 @@ export const fetchRedditFeed = (page) => {
     if (helpers.shouldUseCachedData(getState(), currentDateTime, 'reddit', page)) {
       dispatch({
         type: C.FETCH_REDDIT_FEED_CACHE_HIT,
-        payload: page
+        payload: { page }
       })
 
       return true
