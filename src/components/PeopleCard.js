@@ -47,7 +47,9 @@ class PeopleCard extends Component {
       <p>Click for more information on each Astronaut</p>
         <div className='d-flex flex-wrap justify-content-around'>
           {people && people.map((person, index) => {
-            return <i key={person.name} className={`fas fa-user-astronaut fa-4x ${styles.icon} ${styles.pointer} m-2`} onClick={(e) => this.handleClick(e, index)} />
+            return <div key={person.name} onClick={(e) => this.handleClick(e, index)} >
+              <i className={`fas fa-user-astronaut fa-4x ${styles.icon} ${styles.pointer} m-2`} />
+            </div>
           })}
         </div>
     </>)
