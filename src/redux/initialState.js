@@ -22,6 +22,7 @@ export default {
     timestamp: null
   },
   reddit: {
-    space: {}
+    space: {},
+    nasa: {}
   }
 }
