@@ -45,7 +45,7 @@ class PictureCard extends Component {
               </button>
 
               <div id='collapse-explanation' className='collapse' aria-labelledby='explanation-button'>
-                <div className='card-body'>
+                <div className={`card-body ${styles.explanation}`}>
                   <p>{explanation}</p>
                 </div>
               </div>
