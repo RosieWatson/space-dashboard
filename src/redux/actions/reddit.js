@@ -22,11 +22,18 @@ export const fetchRedditFeed = (page) => {
 
     try {
       const response = await fetch(`https://www.reddit.com/r/${page}.json`)
-      const data = await response.json()
+      const dataJson = await response.json()
 
       dispatch({
         type: C.FETCH_REDDIT_FEED_SUCCESS,
-        payload: { ...data, currentDateTime, page }
+        payload: {
+          data: {
+            number: dataJson.data && dataJson.data.dist,
+            posts: dataJson.data && dataJson.data.children
+          },
+          currentDateTime,
+          page
+        }
       })
     } catch (error) {
       dispatch({
