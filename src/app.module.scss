@@ -80,15 +80,20 @@ body {
   border-bottom: solid rgba(72, 52, 117, 0.5);
   margin: 5px 0;
   padding: 5px 0;
-
-  a {
-    color: #483475;
-    display: inline-block;
-  }
 }
 
 .thumbnail {
   width: 5rem;
   float: left;
   margin-right: 1rem;
+}
+
+.infoButton {
+  background-color: #483475;
+  color: white;
+}
+
+a {
+  color: #483475;
+  display: inline-block;
 }

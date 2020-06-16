@@ -28,7 +28,7 @@ class RedditCard extends Component {
                 const { id, permalink, thumbnail, title } = post.data
                 return <div key={id} className={styles.post}>
                   <a href={`https://www.reddit.com${permalink}`} target='_blank' rel='noopener'>
-                    <img className={styles.thumbnail} src={thumbnail === 'self' ? null : thumbnail} />
+                    <img className={styles.thumbnail} src={thumbnail === 'self' ? null : thumbnail} alt='post thumbnail' />
                     <span>{title.substring(0, 75)}...</span>
                   </a>
                 </div>
