@@ -83,5 +83,12 @@ body {
 
   a {
     color: #483475;
+    display: inline-block;
   }
+}
+
+.thumbnail {
+  width: 5rem;
+  float: left;
+  margin-right: 1rem;
 }

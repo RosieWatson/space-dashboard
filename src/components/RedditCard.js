@@ -25,10 +25,11 @@ class RedditCard extends Component {
             <div className={`${styles.loadingSpinner} m-auto`}></div> :
             <div className={styles.postFeed}>
               {data && data.posts.map(post => {
-                const { id, permalink, title } = post.data
+                const { id, permalink, thumbnail, title } = post.data
                 return <div key={id} className={styles.post}>
                   <a href={`https://www.reddit.com${permalink}`} target='_blank' rel='noopener'>
-                    {title.substring(0, 50)}...
+                    <img className={styles.thumbnail} src={thumbnail === 'self' ? null : thumbnail} />
+                    <span>{title.substring(0, 75)}...</span>
                   </a>
                 </div>
               })}
