@@ -16,6 +16,7 @@ const { persistor, store } = configureStore()
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'bootstrap/js/dist/collapse'
+import 'lazysizes'
 import './styles.scss'
 
 import Main from './components/Main'
