@@ -14,7 +14,11 @@ npm run start
 Some of the requests use NASA's open API, which means you will need to obtain a key from [them](https://api.nasa.gov/) and then add it to your `.env` as `REACT_APP_NASA_API_KEY="YOUR_KEY"`.
 
 ## Overview
-- Written in React
+- Written in React with Redux
+- Serverless function with Firebase
 - Styled using Bootstrap and SASS
 - Bundled using Webpack
 - Deployed via Netlify
+
+## Roadmap
+The aim is that this will be an ongoing project that will pull in and display more information as I find good source.
