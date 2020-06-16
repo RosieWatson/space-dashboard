@@ -21,16 +21,19 @@ class RedditCard extends Component {
       <div className={`card ${styles.infoCard} m-5 mb-0`}>
         <div className='card-body'>
           <CardHeading title={`Reddit: ${page}`} hasFetched={hasFetched} isFetching={isFetching} />
-          <div className={styles.postFeed}>
-            {data && data.posts.map(post => {
-              const { id, permalink, title } = post.data
-              return <div key={id} className={styles.post}>
-                <a href={`https://www.reddit.com${permalink}`} target='_blank' rel='noopener'>
-                  {title.substring(0, 50)}...
-                </a>
-              </div>
-            })}
-          </div>
+          {isFetching && !hasFetched ?
+            <div className={`${styles.loadingSpinner} m-auto`}></div> :
+            <div className={styles.postFeed}>
+              {data && data.posts.map(post => {
+                const { id, permalink, title } = post.data
+                return <div key={id} className={styles.post}>
+                  <a href={`https://www.reddit.com${permalink}`} target='_blank' rel='noopener'>
+                    {title.substring(0, 50)}...
+                  </a>
+                </div>
+              })}
+            </div>
+           }
         </div>
       </div>
     )
