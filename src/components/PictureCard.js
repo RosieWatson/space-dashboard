@@ -5,6 +5,8 @@ import { fetchPictureOfTheDay } from '../redux/actions/pictureOfTheDay'
 
 import styles from '../app.module.scss'
 
+import CardHeading from './CardHeading'
+
 class PictureCard extends Component {
   componentDidMount() {
     this.props.getPictureOfTheDay()
@@ -16,12 +18,7 @@ class PictureCard extends Component {
     return (
       <div className={`picture-card card ${styles.infoCard} m-5 mb-0`}>
         <div className='card-body'>
-          <div>
-            <h5 className='card-title d-inline-block'>
-              Astronomy Picture of the Day
-            </h5>
-            {hasFetched && isFetching && <div className={`${styles.loadingSpinnerSmall} d-inline-block float-right`}></div>}
-          </div>
+          <CardHeading title='Astronomy Picture of the Day' hasFetched={hasFetched} isFetching={isFetching} />
           { isFetching && !hasFetched ?
            <div className={`${styles.loadingSpinner} m-auto`}></div> :
            <>

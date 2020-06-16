@@ -7,6 +7,8 @@ import { fetchPeopleInSpace } from '../redux/actions/peopleInSpace'
 
 import styles from '../app.module.scss'
 
+import CardHeading from './CardHeading'
+
 class PeopleCard extends Component {
   constructor(props) {
     super(props)
@@ -82,12 +84,7 @@ class PeopleCard extends Component {
       <div className={`card ${styles.peopleCard} m-5 mb-0`}>
         <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' containerStyle={{ height: '100%' }}>
             <div className='card-body' style={{ height: '100%' }}>
-              <div>
-                <h5 className='card-title d-inline-block'>
-                  Astronauts in space currently
-                </h5>
-                {hasFetched && isFetching && <div className={`${styles.loadingSpinnerSmall} d-inline-block float-right`}></div>}
-              </div>
+              <CardHeading title='Astronauts in space currently' hasFetched={hasFetched} isFetching={isFetching} />
               {this.renderFlipCardFront()}
             </div>
 
