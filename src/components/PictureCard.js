@@ -16,7 +16,7 @@ class PictureCard extends Component {
     const { copyright, date, explanation, hasFetched, hdUrl, isFetching, mediaType, title, url } = this.props.pictureOfTheDay
 
     return (
-      <div className={`picture-card card ${styles.infoCard} m-5 mb-0`}>
+      <div className={`card ${styles.pictureCard} m-5 mb-0`}>
         <div className='card-body'>
           <CardHeading title='Astronomy Picture of the Day' hasFetched={hasFetched} isFetching={isFetching} />
           { isFetching && !hasFetched ?
@@ -45,7 +45,7 @@ class PictureCard extends Component {
               </button>
 
               <div id='collapse-explanation' className='collapse' aria-labelledby='explanation-button'>
-                <div className={`card-body ${styles.explanation}`}>
+                <div className={`card-body ${styles.explanation} mt-3`}>
                   <p>{explanation}</p>
                 </div>
               </div>

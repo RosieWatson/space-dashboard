@@ -33,6 +33,11 @@ body {
   }
 }
 
+.pictureCard {
+  @extend .infoCard;
+  max-height: inherit;
+}
+
 .backArrow {
   position: absolute;
   bottom: 0;
